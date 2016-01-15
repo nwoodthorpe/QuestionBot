@@ -1,0 +1,147 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="qbot.css?refresh=3">
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-51916590-2', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+        <script>
+            function FillThatTextbox(){
+                var list = ["Tell me 15 digits of pi?",
+                           "Sing me a song?",
+                           "Write a haiku in German?",
+                           "Tell me about the war?",
+                           "Summon Chthulu?",
+                           "Find me cheap flights to NY?",
+                           "Cook me dinner?",
+                           "Bear my child?"]
+                var randomNum = Math.floor(Math.random() * list.length);
+                var questionBox = document.getElementById("qbottext");
+                questionBox.placeholder = list[randomNum];
+            }
+        </script>
+    </head>
+    <body onload="FillThatTextbox()">
+        
+        <div class="title">
+            <a href="../index.html" >QUESTIONBOT</a>
+        </div>
+        
+        <p class="qbotintro">Hey QuestionBot, could you...</p>
+        <div class="container">
+            <input type="text" class="textbox" id="qbottext" 
+                   placeholder="Tell me 15 digits of pi?"
+                   onkeydown = "if (event.keyCode == 13)
+                        document.getElementById('qbotbutton').click()"
+                   />
+            <input type="button" class="qbotbutton" id="qbotbutton" onclick="qbotClick()"/>
+        </div>
+        
+        <p id="status" class="status">Status:</p>
+        <div class="container">
+            <input type="textbox" class="answerbox" id="answerbox" disabled=true value="Waiting..."/>
+        </div>
+        <script>
+            var statusText = document.getElementById("status");
+            var answerBox = document.getElementById("answerbox");
+            
+            var list = [   "Trying to Achieve Polynomial Time...",
+                           "Re-organizing Hashtable Buckets...",
+                           "Applying Artificial Neural Network...",
+                           "Proving the Colatz Conjecture...",
+                           "Balancing Weightings...",
+                           "Asking Djikstra...",
+                           "Doing a Breadth-First Search...",
+                           "Applying Predictive Analysis...",
+                           "Reading Up On Theoretical Computer Science...",
+                           "Taking a Break...",
+                           "Calculating Bias-Variance Decomposition...",
+                           "Integrating by Parts...",
+                           "Trying to Remember Quadratic Formula...",
+                           "Watching Youtube...",
+                           "Traversing A*...",
+                           "Scanning O(1) Datastructure...",
+                           "Scanning Neural Network",
+                           "Asking Skynet...",
+                           "Calculating Mathematical Optimization...",
+                           "Rehashing Hashmap...",
+                           "Searching OCR Database...",
+                           "Balancing Binary Search Tree",
+                           "Calculating Heuristics...",
+                           "Analyzing...",
+                           "Taking Fourier Transform...",
+                           "Applying System of Regular Expressions...",
+                           "Solving P=NP...",
+                           "Calculating Reimann Sums...",
+                           "Solving Mitochondriat/Endoplasum Reticuli Conjecture..."];
+            
+            var finishedlist = ["Finalizing...",
+                                   "Tallying Votes...",
+                                   "Finding Array Min in O(1)...",
+                                   "Finding Array Max in O(2^n)...",
+                                   "Asking Skynet...",
+                                   "Recieving Results..."];
+            var count = 0;
+            var answerCount = 0;
+            var disabled = false;
+            
+            function randomNum(lower, upper){ //inclusive lower, exclusive upper
+                return Math.floor((Math.random() * upper) + lower);
+            }
+            
+            function setStatusText(val){
+                statusText.innerHTML = "Status: " + val;
+            }
+            
+            function setAnswerText(val){
+                answerBox.value=val;
+            }
+            
+            function finished(){
+                var finishedList = ["No.",
+                                    "Get lost.",
+                                    "I don't even know you.",
+                                    "Do I look like a receptionist to you?",
+                                    "Stop it. I'm not answering your stupid questions.",
+                                    "STOP IT!",
+                                    "Get the fuck out of here.",
+                                    "I'm gonna call the cops.",
+                                    "I'm not your fucking mother, ask someone else.",
+                                    "I didn't sign up for this shit.",
+                                    "I don't know. Ok?",
+                                    "I don't know anything. Stop asking shit.",
+                                    "Idk man.",
+                                    "Not sure. Sorry.",
+                                    "Ask CleverBot.",
+                                    "I'm done."]
+                if(answerCount == finishedList.length - 1){
+                    disabled = true;
+                }
+                setStatusText("Done.");
+                setAnswerText(finishedList[answerCount]);
+                answerCount++;
+            }
+            
+            
+            function qbotClick(){
+                if(!disabled){
+                    if(count < 10){
+                        setStatusText(list[randomNum(0, list.length)]);
+                        count++;
+                        setTimeout(qbotClick, randomNum(100, 600));
+                    }else{
+                        count = 0;
+                        setStatusText(finishedlist[randomNum(0, finishedlist.length)]);
+                        setTimeout(finished, randomNum(400, 1000));
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

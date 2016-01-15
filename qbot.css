@@ -1,0 +1,86 @@
+.title {
+    font-family: Montserrat;
+    font-size: 60;
+    font-weight: 400;
+    letter-spacing: 2vw;
+    margin-bottom: 10px;
+    margin-top: 40px;
+    text-align: center;
+    border-bottom: 1px solid "#";
+    border-bottom-style: solid;
+}
+
+a{
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+
+.qbotintro {
+    font-family: montserrat;
+    margin-left: 13%;
+    margin-right: 13%;
+    font-size: 1.4em
+}
+
+.textbox {
+    border: 4px solid #ddd;
+    float: left;
+    margin-bottom: 40px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 16px;
+    font-size: 1.5em;
+    outline: none;
+    font-family: montserrat;
+    border-radius:100px;
+    box-sizing: border-box;
+    height:48px;
+    width: 80%;
+}
+
+.qbotbutton {
+    border: 4px solid #ddd;
+    float: left;
+    width: 48px;
+    cursor: pointer;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-left: 16px;
+    font-size: 1.5em;
+    outline: none;
+    font-family: montserrat;
+    border-radius:100px;
+    height:48px;
+    background-image: url(assets/arrow.png);
+    background-size: 100% 100%;
+}
+
+.container{
+    margin-left: 13%;
+    margin-right: 13%;
+    width: 74%;
+    overflow: hidden;
+}
+
+.status{
+    font-family: montserrat;
+    margin-left: 13%;
+    margin-right: 13%;
+    font-size: 1.4em
+}
+
+.answerbox{
+    border: 4px solid #ddd;
+    float: left;
+    margin-bottom: 40px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 16px;
+    font-size: 1.5em;
+    outline: none;
+    font-family: montserrat;
+    border-radius:100px;
+    box-sizing: border-box;
+    height:48px;
+    width: 80%;
+}
